@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CSS Zen Garden: The Beauty of CSS Design</title>
+ 
+    <link rel="stylesheet" media="screen" href="style.css?v=8may2013">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml">
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dave Shea">
+    <meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design.">
+    <meta name="robots" content="all">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ 
+ 
+    <!--[if lt IE 9]>
+    <script src="script/html5shiv.js"></script>
+    <![endif]-->
+</head>
+ 
+<!--
+ 
+ 
+ 
+    View source is a feature, not a bug. Thanks for your curiosity and
+    interest in participating!
+ 
+    Here are the submission guidelines for the new and improved csszengarden.com:
+ 
+    - CSS3? Of course! Prefix for ALL browsers where necessary.
+    - go responsive; test your layout at multiple screen sizes.
+    - your browser testing baseline: IE9+, recent Chrome/Firefox/Safari, and iOS/Android
+    - Graceful degradation is acceptable, and in fact highly encouraged.
+    - use classes for styling. Don't use ids.
+    - web fonts are cool, just make sure you have a license to share the files. Hosted
+      services that are applied via the CSS file (ie. Google Fonts) will work fine, but
+      most that require custom HTML won't. TypeKit is supported, see the readme on this
+      page for usage instructions: https://github.com/mezzoblue/csszengarden.com/
+ 
+    And a few tips on building your CSS file:
+ 
+    - use :first-child, :last-child and :nth-child to get at non-classed elements
+    - use ::before and ::after to create pseudo-elements for extra styling
+    - use multiple background images to apply as many as you need to any element
+    - use the Kellum Method for image replacement, if still needed. http://goo.gl/GXxdI
+    - don't rely on the extra divs at the bottom. Use ::before and ::after instead.
+ 
+       
+-->
+    <style>
+ 
+ 
+ 
+ 
+ 
+ 
+.Træ, .Plante, .Sand,.Butter  {
+  width: 800x; /* or appropriate dimensions */
+  height: 500px; /* Keep the aspect ratio intact */
+  margin: 20px auto; /* Center the images horizontally within the container */
+  display: block; /* Make the images behave like block elements */
+  border-radius: 28px;
+   box-shadow: 10px 10px 10px;
+ 
+ 
+}
+ 
+ 
+  .main {
+  position: relative; /* Makes .main the positioning context */
+  padding: 20px;
+  background-color: #f7f7f7;
+  
+ 
+}
+ 
+ 
+ 
+ 
+    </style>
+ 
+ 
+<body>
+    <header>
+        <img class="logo" src="assets/img/logo.png" height="120" width="140" alt="">
+      <h1>CSS Zen Garden </h1>
+      <nav id="site-links">
+		<a href="index.html">Home</a>
+		<a href="resources.html">Resources</a>
+		<a href="archives.html">Archives</a>
+		<a href="gallery.html">Gallery</a>
+      </nav>
+    </header>
+    <div class="design-box">
+        <h3>Design Selection</h3>
+    </div>
+    <!-- Main Content -->
+    <div class="main">
+      <h3 style="text-align: center;">Gallery</h3>
+      <img src="assets/img/træ.jpg" alt="buda" class="Træ">
+      <img src="assets/img/plante.jpg" alt="buda" class="Plante">
+      <img src="assets/img/sand.jpg" alt="buda" class="Sand">
+      <img src="assets/img/butter.jpg" alt="buda" class="Butter">
+   
+    </div>
+ 
+   <!-- Design Selection Bar -->
+	<div class="design-bar">
+
+		<div class="hamburger" id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		  </div>
+	  
+	  <ul class="nav-links" id="nav-links">
+		<li><a href="https://csszengarden.com/221/">Mid Century Modern by Andrew Lohman</a></li>
+		<li><a href="https://csszengarden.com/220/">Garments by Dan Mall</a></li>
+		<li><a href="https://csszengarden.com/219/">Steel by Steffen Knoeller</a></li>
+	  </ul>
+	</div>
+ 
+    <footer>
+      <p>&copy; 2024 CSS Zen Garden</p>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+      const siteLinks = document.getElementById('site-links'); // Original header nav
+      
+      // Function to update nav-links dynamically for small screens
+      function updateNavLinks() {
+        if (window.innerWidth <= 1010) {
+        // Add site-links to nav-links if not already added
+        if (!navLinks.querySelector('#dynamic-site-links')) {
+          const siteLinksHTML = Array.from(siteLinks.children)
+          .map((link) => `<li>${link.outerHTML}</li>`)
+          .join('');
+          const dynamicLinks = document.createElement('div');
+          dynamicLinks.id = 'dynamic-site-links';
+          dynamicLinks.innerHTML = siteLinksHTML;
+          navLinks.appendChild(dynamicLinks);
+        }
+        } else {
+        // Remove dynamic site-links from nav-links on larger screens
+        const dynamicLinks = document.getElementById('dynamic-site-links');
+        if (dynamicLinks) {
+          navLinks.removeChild(dynamicLinks);
+        }
+        // Ensure the hamburger menu is closed on larger screens
+        navLinks.classList.remove('show');
+        }
+      }
+      
+      // Run updateNavLinks on page load and resize
+      updateNavLinks();
+      window.addEventListener('resize', updateNavLinks);
+      
+      // Toggle the visibility of the nav-links when hamburger is clicked
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+      </script>
+
+  </body>
+ 
+</html>

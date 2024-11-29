@@ -1,0 +1,299 @@
+
+body {
+  font-family: "Kavivanar", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #317249;
+  color: #333;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 0px;
+  min-height: 100vh; /* Full viewport height */
+  margin: 0;
+  z-index: 1;
+}
+
+.logo{
+	float: left;
+}
+
+
+/* Header */
+header {
+  background-color: #4C9668; /* Bamboo green */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  grid-column: 1 / span 3; /* Stretch across all 4 columns */
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0px;
+  margin-top: 0;
+  padding: 20px;
+}
+
+header nav a {
+  color: #000000;
+  text-decoration: none;
+  padding: 15px 20px;
+  background: #E7E2CB;
+  margin-right: 20px;
+  border-radius: 10px;
+  font-size: x-large;
+  align-self: inherit;
+}
+
+header nav a:hover {
+  background: #72a079;
+}
+
+/* Main Content Area */
+.main {
+  background: rgb(255, 255, 255); /* Light, translucent panel */
+  padding: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / span 3; /* Occupies the first 3 columns */
+  text-align: left;
+  z-index: 2;
+}
+.full-width {
+	width: 100vw;
+	position: relative;
+	left: 0%;
+	right: 50%;
+	margin-left: -1vw;
+	margin-right: -40vw;
+  overflow: hidden;
+}
+.full-width .banner {
+    width: 100%; object-fit: cover;
+    height: auto;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+	  z-index: 0;
+    max-width: none !important;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    margin-bottom: -300px;
+    margin-top: -200px;
+}
+.main h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.main p {
+  margin-bottom: 10px;
+  line-height: 1.8;
+  margin-left: 20px;
+}
+
+/* Design Selection Bar */
+.design-bar {
+  background: rgb(76, 150, 104, 0.7); /* Bamboo green */
+  padding: 20px;
+  text-align: center;
+  grid-column: 4; /* Occupies the last column */
+  grid-auto-flow: column;
+  z-index: 4;
+}
+img{
+	max-width: 100%;
+	
+}
+.design-bar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.design-bar li {
+  margin-bottom: 15px;
+}
+
+.design-bar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.design-bar a:hover {
+  background: #567d5b;
+}
+
+/* Footer */
+footer {
+  background: #4C9668;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  grid-column: 1 / span 4; /* Stretch across all 4 columns */
+}
+
+/* Responsive Design */
+@media (max-width: 1010px) {
+  body {
+    grid-template-columns: 1fr; /* Single-column layout */
+  }
+
+  .main {
+    grid-column: 1 / span 1; /* Full width for content */
+  }
+}
+.design-box{
+	color: #000000;
+	text-decoration: none;
+	padding: 5px 10px;
+	background: #E7E2CB;
+	margin-right: 5px;
+	border-radius: 10px;
+	margin-top: 70px;
+	margin-bottom: 10px;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+  font-size: x-large;
+}
+.text-box{
+  background-color: rgb(228, 219, 180, 70%);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  padding: 15px;
+  padding-bottom: 20px;
+  font-size: x-large;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130%;
+  height: 100%;
+  background-image: url('assets/img/bamboo\ done.png'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the viewport */
+  background-position: center; /* Centers the image */
+  background-repeat: repeat-y;
+  z-index: 999;
+  background-color: rgb(228, 219, 180, 0%);
+}
+.design-bar {
+  background: rgb(76, 150, 104, 0.7); /* Bamboo green */
+  padding: 40px;
+  text-align: center;
+  grid-column: 4; /* Occupies the last column */
+  z-index: 4;
+  position: relative;
+}
+
+.design-bar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.design-bar li {
+  margin-bottom: 15px;
+}
+
+.design-bar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.design-bar a:hover {
+  background: #567d5b;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding-left: 20px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1010px) {
+  #site-links {
+    display: none; /* Hide original site-links when screen is small */
+  }
+
+  .design-bar ul {
+    display: none; /* Hide original design-bar links */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #4C9668; /* Bamboo green */
+    position: relative;
+    top: 60px;
+    right: 20px;
+    width: 250px;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav-links when toggled */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #000000;
+    padding: 10px 15px;
+    display: inline-block;
+    background: #E7E2CB;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+
+  .nav-links a:hover {
+    background: #72a079;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: relative;
+    z-index: 20;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .banner{
+    display: none;
+  }
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CSS Zen Garden: The Beauty of CSS Design</title>
+
+	<link rel="stylesheet" media="screen" href="style.css?v=8may2013">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Dave Shea">
+	<meta name="description" content="A demonstration of what can be accomplished visually through CSS-based design.">
+	<meta name="robots" content="all">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+	
+	<header>
+		<img class="logo" src="assets/img/logo.png" height="120" width="140" alt="">
+	  <h1>CSS Zen Garden</h1>
+	  <nav id="site-links">
+		<a href="index.html">Home</a>
+		<a href="resources.html">Resources</a>
+		<a href="archives.html">Archives</a>
+		<a href="gallery.html">Gallery</a>
+	  </nav>
+	</header>
+	<div class="design-box">
+		<h3>Design Selection</h3>
+	</div>
+
+
+  
+	<!-- Main Content -->
+	<div class="main" style="padding-bottom: 100px; padding-top: 70px;">
+        <h3 style="text-align: center;">Resources</h3>
+        <div class="text-box"><p>View This Design’s CSS</p><p>CSS Resources</p><p>FAQ</p><p>Submit a design</p><p>Translations</p></div>
+		</div>
+	</div>
+  
+	<!-- Design Selection Bar -->
+	<div class="design-bar">
+
+		<div class="hamburger" id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		  </div>
+	  
+	  <ul class="nav-links" id="nav-links">
+		<li><a href="https://csszengarden.com/221/">Mid Century Modern by Andrew Lohman</a></li>
+		<li><a href="https://csszengarden.com/220/">Garments by Dan Mall</a></li>
+		<li><a href="https://csszengarden.com/219/">Steel by Steffen Knoeller</a></li>
+	  </ul>
+	</div>
+  
+	<footer>
+	  <p>&copy; Copyrights something something 2024: Freya, Line B, Philip, Casper, Marcus & Maya</p>
+	</footer>
+
+	<script>
+		const hamburger = document.getElementById('hamburger');
+		const navLinks = document.getElementById('nav-links');
+		const siteLinks = document.getElementById('site-links'); // Original header nav
+	  
+		// Function to update nav-links dynamically for small screens
+		function updateNavLinks() {
+		  if (window.innerWidth <= 1010) {
+			// Add site-links to nav-links if not already added
+			if (!navLinks.querySelector('#dynamic-site-links')) {
+			  const siteLinksHTML = Array.from(siteLinks.children)
+				.map((link) => `<li>${link.outerHTML}</li>`)
+				.join('');
+			  const dynamicLinks = document.createElement('div');
+			  dynamicLinks.id = 'dynamic-site-links';
+			  dynamicLinks.innerHTML = siteLinksHTML;
+			  navLinks.appendChild(dynamicLinks);
+			}
+		  } else {
+			// Remove dynamic site-links from nav-links on larger screens
+			const dynamicLinks = document.getElementById('dynamic-site-links');
+			if (dynamicLinks) {
+			  navLinks.removeChild(dynamicLinks);
+			}
+			// Ensure the hamburger menu is closed on larger screens
+			navLinks.classList.remove('show');
+		  }
+		}
+	  
+		// Run updateNavLinks on page load and resize
+		updateNavLinks();
+		window.addEventListener('resize', updateNavLinks);
+	  
+		// Toggle the visibility of the nav-links when hamburger is clicked
+		hamburger.addEventListener('click', () => {
+		  navLinks.classList.toggle('show');
+		});
+	  </script>
+
+  </body>
+  
+</html>
